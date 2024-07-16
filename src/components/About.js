@@ -1,35 +1,43 @@
 import React from 'react'
 import { useState } from 'react'
+import { useEffect } from 'react';
 
-export default function About() {
+
+export default function About(props) {
+
+
     const [myStyle,setMyStyle]=useState( {
         backgroundColor:'white',
         color:'black'
     })
 
-    const [btnText,setBtnText]=useState('Enable dark mode')
+    const {mode}=props;
+
+    
+    useEffect(() => {
+        toggleMode();
+        // eslint-disable-next-line
+      }, [mode]);
 
     const toggleMode=()=>{//if const not written it will give error as not define   
-        if(myStyle.backgroundColor==='white'){
+        if(mode==='dark'){
             setMyStyle({
                 backgroundColor:'black',
-                color:'white'
+                color:'white' 
             }
             )
-            setBtnText('Enable light mode')
         }else{
             setMyStyle({
                 backgroundColor:'white',
                 color:'black'
             }
             )
-            setBtnText('Enable dark mode')
         }
     }
 
   return (
     <>
-    <div className='container my-3' style={myStyle}>
+    <div className='container my-3' style={myStyle} >
         <h1>About us</h1>
         <div className="accordion" id="accordionExample" >
     <div className="accordion-item" style={myStyle}>
@@ -38,7 +46,7 @@ export default function About() {
             Accordion Item #1
         </button>
         </h2>
-        <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseOne" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
         <div className="accordion-body">
             <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
         </div>
@@ -69,11 +77,8 @@ export default function About() {
         </div>
   </div>
   </div>
-    <div className="container">
-    <button type="button" className="btn btn-primary my-3"onClick={toggleMode}>{btnText}</button>
-    </div>
-</div>
 
+</div>
     </>
   )
 }
