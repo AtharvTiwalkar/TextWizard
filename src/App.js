@@ -37,7 +37,7 @@ function App() {
   }
   return (
     <HashRouter>
-      <Navbar title="TextWizard" aboutText="aboutTextWizard" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="TextWizard" aboutText="AboutTextWizard" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
         <Routes>
           <Route exact path='/' element={<TextForm heading="Enter the text to analyze below" showAlert={showAlert} mode={mode} />} />

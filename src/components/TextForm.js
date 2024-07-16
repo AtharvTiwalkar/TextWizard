@@ -85,7 +85,7 @@ export default function TextForm(props) {
             <div className={`container  text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" style={{ backgroundColor: props.mode === 'dark' ? 'grey' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleonchange} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" style={{ backgroundColor: props.mode === 'dark' ? '#121212' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleonchange} id="myBox" rows="8"></textarea>
                 </div>
                 <button className="btn btn-danger mx-1 my-2" onClick={clearText}>Clear Text</button>
                 <button className="btn btn-primary mx-1 my-2" onClick={copyText}>Copy Text</button>
